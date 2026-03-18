@@ -6,10 +6,6 @@
 This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
 
 
-<h2>Video Demonstration</h2>
-
-- ### [YouTube: How to Deploy on-premises Active Directory within Azure Compute](https://www.youtube.com)
-
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
@@ -23,17 +19,12 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Windows Server 2022
 - Windows 10 (21H2)
 
-<h2>High-Level Deployment and Configuration Steps</h2>
 
-- 
-- 
-- 
-- 
 
 <h2>Deployment and Configuration Steps</h2>
 
 
-## Lab Goals
+<b> Lab Goals </b>
 
 By the end of this lab, the following will be accomplished:
 
@@ -45,7 +36,7 @@ By the end of this lab, the following will be accomplished:
 
 ---
 
-## Deployment Overview
+<b> Deployment Overview </b>
 
 1. Provision two Azure VMs (domain controller and client)
 2. Install and configure Active Directory Domain Services
@@ -56,22 +47,22 @@ By the end of this lab, the following will be accomplished:
 
 ---
 
-## Step-by-Step Configuration
+<b> Step-by-Step Configuration </b>
 
-### 1. Set up Azure Virtual Machines
+<b> 1. Set up Azure Virtual Machines </b>
 
 Two virtual machines are required for this lab.
 
-**Domain Controller — DC-01**
+<b>Domain Controller — DC-01</b>
 
 - OS: Windows Server 2022
 - Size: Minimum 2 vCPUs
 - Virtual Network: New VNet created during VM provisioning
-- Private IP: Set to **Static**
+- Private IP: Set to <b>Static</b>
 
 > Setting a static private IP on the domain controller is important as a dynamic IP could cause the DNS and domain join to fail if the address changes after a restart.
 
-**Client Machine — CLIENT-01**
+<b>Client Machine — CLIENT-01</b>
 
 - OS: Windows 10 (21H2)
 - Virtual Network: Same VNet and subnet as DC-01
@@ -80,42 +71,42 @@ Two virtual machines are required for this lab.
 
 ---
 
-### 2. Install Active Directory Domain Services
+<b> 2. Install Active Directory Domain Services</b>
 
-1. Log into **DC-01** via Remote Desktop
-2. Open **Server Manager**
-3. Select **Add Roles and Features**
-4. Install **Active Directory Domain Services** (and DNS Server if prompted)
+1. Log into <b>DC-01</b> via Remote Desktop
+2. Open <b>Server Manager</b>
+3. Select <b>Add Roles and Features</b>
+4. Install <b>Active Directory Domain Services</b> (and DNS Server if prompted)
 5. Complete the installation wizard
 
 ---
 
-### 3. Promote DC-01 to a Domain Controller
+<b>3. Promote DC-01 to a Domain Controller</b>
 
-1. In Server Manager, click the **AD DS notification flag**
-2. Select **Promote this server to a domain controller**
-3. Choose **Add a new forest**
-4. Set the root domain name to `corp.local`
+1. In Server Manager, click the <b>AD DS notification flag</b>
+2. Select <b>Promote this server to a domain controller</b>
+3. Choose <b>Add a new forest</b>
+4. Set the root domain name to <b>corp.local</b>
 5. Configure the Directory Services Restore Mode (DSRM) password
 6. Complete the wizard and allow the server to reboot
 
-After rebooting, DC-01 is now a functioning domain controller for `corp.local`.
+After rebooting, DC-01 is now a functioning domain controller for <b>corp.local</b>.
 
 ---
 
-### 4. Create Organizational Units, Users, and Groups
+<b> 4. Create Organizational Units, Users, and Groups</b>
 
-**Organizational Units**
+<b>Organizational Units</b>
 
 Open **Active Directory Users and Computers** and create the following OUs:
 
-- `IT`
-- `Employees`
-- `Group Computers`
+- <b>IT</b>
+- <b>Employees</b>
+- <b>Group Computers</b>
 
 > Custom OUs are used to model a realistic enterprise directory structure. Default AD containers are left intact as they are system-managed.
 
-**Domain Users**
+<b>Domain Users</b>
 
 Create a small set of test users to demonstrate directory functionality:
 
