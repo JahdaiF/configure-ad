@@ -86,11 +86,11 @@ Two virtual machines are required for this lab.
 1. In Server Manager, click the <b>AD DS notification flag</b>
 2. Select <b>Promote this server to a domain controller</b>
 3. Choose <b>Add a new forest</b>
-4. Set the root domain name to <b>corp.local</b>
-5. Configure the Directory Services Restore Mode (DSRM) password
+4. Set the root domain name to <b>mydomain.com</b>
+5. Configure the Directory Services Restore Mode (DSRM) password (Password1)
 6. Complete the wizard and allow the server to reboot
 
-After rebooting, DC-01 is now a functioning domain controller for <b>corp.local</b>.
+After rebooting, DC-01 is now a functioning domain controller for <b>mydomain.com</b>.
 
 ---
 
@@ -100,9 +100,8 @@ After rebooting, DC-01 is now a functioning domain controller for <b>corp.local<
 
 Open **Active Directory Users and Computers** and create the following OUs:
 
-- <b>IT</b>
-- <b>Employees</b>
-- <b>Group Computers</b>
+- <b>_Admins</b>
+- <b>_Employees</b>
 
 > Custom OUs are used to model a realistic enterprise directory structure. Default AD containers are left intact as they are system-managed.
 
@@ -112,9 +111,9 @@ Create a small set of test users to demonstrate directory functionality:
 
 | Username | Role |
 |---|---|
-| jdoe | Standard user |
-| asmith | Standard user |
-| itadmin | IT administrator |
+| jane_admin | IT Administrator |
+| asmith | Employee |
+| Bob | Employee |
 
 **Security Groups**
 
@@ -122,8 +121,8 @@ Create the following security groups within the appropriate OUs and assign users
 
 | Group | Members |
 |---|---|
-| Domain-Users | jdoe, asmith |
-| IT-Admins | itadmin |
+| Domain-Users | Bob, asmith |
+| IT-Admins | jane_admin |
 
 > Using group-based permissions rather than individual user assignments reflects enterprise access control best practices and simplifies ongoing management.
 
@@ -142,7 +141,7 @@ This ensures the client can resolve the domain controller and locate domain serv
 **Join the Domain**
 
 1. Open **System Properties** → **Change settings**
-2. Select **Domain** and enter `corp.local`
+2. Select **Domain** and enter `mydomain.com`
 3. Authenticate with a domain administrator account
 4. Reboot when prompted
 
@@ -152,7 +151,7 @@ This ensures the client can resolve the domain controller and locate domain serv
 
 After CLIENT-01 reboots:
 
-- Log in using a domain user account (e.g., `corp\jdoe`)
+- Log in using a domain user account (e.g., `mydomain.com\jane_admin`)
 - Confirm successful domain authentication
 - Verify group membership is applied correctly
 - Confirm CLIENT-01 appears in Active Directory under the **Group Computers** OU
