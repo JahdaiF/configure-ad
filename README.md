@@ -121,7 +121,7 @@ Create a small set of test users to demonstrate directory functionality:
 <b>Bulk User Creation via PowerShell</b><br>
 In addition to the manually created accounts above, a PowerShell script was used to bulk create <b>10,000 employee accounts</b> within the <b>_Employees</b> OU. This simulates the process used in real-world IT environments where user accounts are created programmatically at scale. In a real environment, the script would pull from an HR data source rather than generating random names.<br>
 <br>
-<b>View the full PowerShell script here:</b> <a href="https://github.com/JahdaiF/configure-ad/blob/main/Generate-Names-Create-Users.ps1">Generate-Names-Create-Users.ps1</a>
+
 The script automated:
 
 - Random username generation using alternating consonants and vowels
@@ -132,6 +132,8 @@ The script automated:
 After the script completed, the accounts were verified in **Active Directory Users and Computers (ADUC)** under the **_Employees** OU. I then used one of the manually created domain accounts to successfully log into **CLIENT-01**, confirming end-to-end domain authentication was working correctly.
 
 > In a production environment, account creation would be tied to an HR onboarding workflow with real employee data rather than randomly generated names.
+
+*Script provided as part of course curriculum.* <b>View the full PowerShell script here:</b> <a href="https://github.com/JahdaiF/configure-ad/blob/main/Generate-Names-Create-Users.ps1">Generate-Names-Create-Users.ps1</a>
 
 ---
 **Security Groups**
