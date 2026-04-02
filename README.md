@@ -150,7 +150,7 @@ Create the following security groups within the appropriate OUs and assign users
 
 ---
 
-<h3> 5. Configure Client DNS and Join the Domain </h3>
+<b> 5. Configure Client DNS and Join the Domain </b>
 
 <b>Set DNS on CLIENT-01</b>
 
@@ -169,7 +169,7 @@ Create the following security groups within the appropriate OUs and assign users
 
 ---
 
-<h3> 6. Organize and Validate Domain Functionality </h3>
+<b> 6. Organize and Validate Domain Functionality </b>
 
 <b>Organize the Directory (On DC-01)</b>
 
@@ -194,7 +194,7 @@ After <b>CLIENT-01</b> reboots, perform the following checks:
 
 ---
 
-## Outcome
+<h2>Outcome</h2>
 
 At the conclusion of this lab:
 
