@@ -158,7 +158,7 @@ Create the following security groups within the appropriate OUs and assign users
 2. Open <b>Network Adapter Settings</b>
 3. Set the <b>Preferred DNS Server</b> to the <b>static private IP of DC-01</b>
 
-> <b>Troubleshooting Note:</b> This step is critical. Without pointing the client's DNS to the Domain Controller, the workstation will be unable to resolve <b>mydomain.com</b> and the domain join will fail.
+> <b>Troubleshooting Note:</b> This step is critical. Without pointing the client's DNS to the Domain Controller, the workstation will be unable to locate <b>mydomain.com</b> and the domain join will fail.
 
 <b>Join the Domain</b>
 
