@@ -150,34 +150,47 @@ Create the following security groups within the appropriate OUs and assign users
 
 ---
 
-### 5. Configure Client DNS and Join the Domain
+<h3> 5. Configure Client DNS and Join the Domain </h3>
 
-**Set DNS on CLIENT-01**
+<b>Set DNS on CLIENT-01</b>
 
-1. Log into **CLIENT-01** via Remote Desktop
-2. Open **Network Adapter Settings**
-3. Set the **Preferred DNS Server** to the **static private IP of DC-01**
+1. Log into <b>CLIENT-01</b> via Remote Desktop
+2. Open <b>Network Adapter Settings</b>
+3. Set the <b>Preferred DNS Server</b> to the <b>static private IP of DC-01</b>
 
-This ensures the client can resolve the domain controller and locate domain services.
+> <b>Troubleshooting Note:</b> This step is critical. Without pointing the client's DNS to the Domain Controller, the workstation will be unable to resolve <b>mydomain.com</b> and the domain join will fail.
 
-**Join the Domain**
+<b>Join the Domain</b>
 
-1. Open **System Properties** → **Change settings**
-2. Select **Domain** and enter `mydomain.com`
+1. Open <b>System Properties</b> → <b>Change settings</b>
+2. Select <b>Domain</b> and enter <b>mydomain.com</b>
 3. Authenticate with a domain administrator account (e.g., <b>jane_admin</b>)
 4. Reboot when prompted
 
 ---
 
-### 6. Validate Domain Functionality
+<h3> 6. Organize and Validate Domain Functionality </h3>
 
-After CLIENT-01 reboots:
+<b>Organize the Directory (On DC-01)</b>
 
-- Log in using a domain user account (e.g., `mydomain.com\jane_admin`)
-- Confirm successful domain authentication
+Once the client has joined the domain, it must be organized within Active Directory:
+
+1. Log into <b>DC-01</b> and open <b>Active Directory Users and Computers (ADUC)</b>
+2. Navigate to the default <b>Computers</b> container to find <b>CLIENT-01</b>
+3. Right-click <b>CLIENT-01</b> and select <b>Move</b>
+4. Choose the <b>_Clients</b> OU created in Step 4
+
+> Moving the computer object to a custom OU is a best practice that allows for specific Group Policy Objects (GPOs) to be applied to workstations later.
+
+<b>Final Validation</b>
+
+After <b>CLIENT-01</b> reboots, perform the following checks:
+
+- Log in using a domain user account (e.g., <b>mydomain.com\asmith</b>)
+- Confirm successful domain authentication and desktop initialization
 - Verify group membership is applied correctly
-- Confirm CLIENT-01 appears in Active Directory under the **_Clients** OU
-- Test DNS name resolution and connectivity to DC-01
+- Confirm <b>CLIENT-01</b> appears in Active Directory under the <b>_Clients</b> OU
+- Test DNS name resolution and connectivity by pinging <b>DC-01</b>
 
 ---
 
