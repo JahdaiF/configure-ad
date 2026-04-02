@@ -175,7 +175,7 @@ After CLIENT-01 reboots:
 - Log in using a domain user account (e.g., `mydomain.com\jane_admin`)
 - Confirm successful domain authentication
 - Verify group membership is applied correctly
-- Confirm CLIENT-01 appears in Active Directory under the **Group Computers** OU
+- Confirm CLIENT-01 appears in Active Directory under the **_CLIENTS** OU
 - Test DNS name resolution and connectivity to DC-01
 
 ---
@@ -190,6 +190,11 @@ At the conclusion of this lab:
 - Core identity and directory management concepts are demonstrated hands-on
 
 ---
+<h2>Troubleshooting</h2>
+
+One key challenge during this lab was ensuring CLIENT-01 could locate the domain controller. Initially the domain join fails because the client was using the default Azure DNS rather than DC-01.
+
+<b>Solution:</b> I navigated to the Azure Network Interface settings for CLIENT-01 and manually set the DNS server to the static private IP of DC-01. After restarting the VM the domain join completed successfully.
 
 ## Possible Extensions
 
