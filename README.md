@@ -105,7 +105,7 @@ Open **Active Directory Users and Computers** and create the following OUs:
 
 - <b>_Admins</b>
 - <b>_Employees</b>
-- <b>_Clients
+- <b>_Clients</b>
 
 > Custom OUs are used to model a realistic enterprise directory structure. Default AD containers are left intact as they are system-managed.
 
