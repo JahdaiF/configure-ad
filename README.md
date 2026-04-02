@@ -105,6 +105,7 @@ Open **Active Directory Users and Computers** and create the following OUs:
 
 - <b>_Admins</b>
 - <b>_Employees</b>
+- <b>_Clients
 
 > Custom OUs are used to model a realistic enterprise directory structure. Default AD containers are left intact as they are system-managed.
 
@@ -163,7 +164,7 @@ This ensures the client can resolve the domain controller and locate domain serv
 
 1. Open **System Properties** → **Change settings**
 2. Select **Domain** and enter `mydomain.com`
-3. Authenticate with a domain administrator account
+3. Authenticate with a domain administrator account (e.g., <b>jane_admin</b>)
 4. Reboot when prompted
 
 ---
@@ -175,7 +176,7 @@ After CLIENT-01 reboots:
 - Log in using a domain user account (e.g., `mydomain.com\jane_admin`)
 - Confirm successful domain authentication
 - Verify group membership is applied correctly
-- Confirm CLIENT-01 appears in Active Directory under the **_CLIENTS** OU
+- Confirm CLIENT-01 appears in Active Directory under the **_Clients** OU
 - Test DNS name resolution and connectivity to DC-01
 
 ---
@@ -192,7 +193,7 @@ At the conclusion of this lab:
 ---
 <h2>Troubleshooting</h2>
 
-One key challenge during this lab was ensuring CLIENT-01 could locate the domain controller. Initially the domain join fails because the client was using the default Azure DNS rather than DC-01.
+One key challenge during this lab was ensuring CLIENT-01 could locate the domain controller. Initially the domain join failed because the client was using the default Azure DNS rather than DC-01.
 
 <b>Solution:</b> I navigated to the Azure Network Interface settings for CLIENT-01 and manually set the DNS server to the static private IP of DC-01. After restarting the VM the domain join completed successfully.
 
