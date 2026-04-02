@@ -210,7 +210,7 @@ One key challenge during this lab was ensuring CLIENT-01 could locate the domain
 
 <b>Solution:</b> I navigated to the Azure Network Interface settings for CLIENT-01 and manually set the DNS server to the static private IP of DC-01. After restarting the VM the domain join completed successfully.
 
-## Possible Extensions
+<h2>Possible Extensions</h2> 
 
 This lab can be expanded in several directions:
 
@@ -222,7 +222,7 @@ This lab can be expanded in several directions:
 
 ---
 
-## Skills Demonstrated
+<h2>Skills Demonstrated</h2>
 
 This project reflects practical knowledge of:
 
