@@ -229,6 +229,6 @@ This project reflects practical knowledge of:
 - Identity and access management fundamentals
 - Windows Server administration
 - Cloud-hosted infrastructure with on-premises architecture
-- Enterprise directory services design and management
+- Enterprise directory services design and management.
 
 These skills are directly applicable to help desk, IT support, systems operations, and junior system administrator roles.
